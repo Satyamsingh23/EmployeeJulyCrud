@@ -1,0 +1,49 @@
+<div matDialogContent class="content">
+    <h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <b>Add Employee Form</b>
+    </h2>
+    <br>
+    <form [formGroup]="AddEmployee" (ngSubmit)="PostEmployee(AddEmployee.value)">
+       
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Name</mat-label>
+                <input matInput name="empName" formControlName="empName" placeholder="EmployeeName">
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Email</mat-label>
+                <input matInput name="empEmail" formControlName="empEmail" placeholder="Email">
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field appearance="fill" class="example-form-field">
+                <mat-label>Employee DOB</mat-label>
+                <input matInput [matDatepicker]="datepicker" formControlName="dob">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                    <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel class="btn">Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply class="btn">Apply</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput name="empPhone" formControlName="empPhone" placeholder="Phone Number">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput name="city" formControlName="city" placeholder="City">
+            </mat-form-field>
+
+        <div matDialogActions>
+            <button mat-raised-button class="btn btn-shape" (click)="exit()">Cancel</button>&nbsp;&nbsp;
+            <button mat-raised-button class="btn btn-shape" color="primary" type="submit" >Save</button>
+        </div>
+    </form>
+</div>
+
+
